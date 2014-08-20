@@ -1,0 +1,64 @@
+First, learn the core concepts of Node.js:
+
+    You'll want to understand the asynchronous coding style that Node encourages.
+
+    Async != concurrent. Understand Node's event loop!
+
+    Node uses CommonJS-style require() for code loading; it's probably a bit different from what you're used to.
+
+    Familiarize yourself with Node's standard library.
+
+Then, you're going to want to see what the community has to offer:
+
+The gold standard for Node package management is NPM.
+
+    It is a command line tool for managing your project's dependencies.
+
+    Make sure you understand how Node and NPM interact with your project via the node_modules folder and package.json.
+
+    NPM is also a registry of pretty much every Node package out there
+
+Finally, you're going to want to know what some of the more popular packages are for various tasks:
+
+Useful Tools for Every Project:
+
+    Underscore contains just about every core utility method you want.
+    CoffeeScript makes JavaScript considerably more bearable, while also keeping you out of trouble!
+        Caveat: A large portion of the community frowns upon it. If you are writing a library, you should consider regular JavaScript, to benefit from wider collaboration.
+
+Unit Testing:
+
+    Mocha is a popular test framework.
+    Vows is a fantastic take on asynchronous testing, albeit somewhat stale.
+    Expresso is a more traditional unit testing framework.
+    node-unit is another relatively traditional unit testing framework.
+
+Web Frameworks:
+
+    Express is by far the most popular framework.
+    Meteor bundles together jQuery, Handlebars, Node.js, websockets, mongoDB, and DDP and promotes convention over configuration without being a Rails clone.
+    Tower is an abstraction of top of Express that aims to be a Rails clone.
+    Geddy is another take on web frameworks.
+    RailwayJS is a Ruby-on-Rails inspired MVC web framework.
+    SailsJS is a realtime MVC web framework.
+    Sleek.js is a simple web framework, built upon express.js.
+    Hapi is a configuration-centric framework with built-in support for input validation, caching, authentication, etc.
+    Koa Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs.
+
+Web Framework Tools:
+
+    Jade is the HAML/Slim of the Node world
+    EJS is a more traditional templating language.
+    Don't forget about Underscore's template method!
+
+Networking:
+
+    Connect is the Rack or WSGI of the Node world.
+    Request is a very popular HTTP request library.
+    socket.io is handy for building WebSocket servers.
+
+Command Line Interaction:
+
+    Optimist makes argument parsing a joy.
+    Commander is another popular argument parser.
+    Colors makes your CLI output pretty.
