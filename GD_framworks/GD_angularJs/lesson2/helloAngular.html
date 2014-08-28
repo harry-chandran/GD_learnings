@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<title>Angularjs tutorial </title>
+<script src="../js/angular.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/model.js"></script>
+<script type="text/javascript">
+ 
+</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		
+		<div ng-controller="myfavoritesCtl">
+		<table>
+			<tr ng-repeat="foods in favourits.names">	
+				<td>{{foods.item}}</td>
+				<td>{{foods.food}}</td>
+			</tr>
+		</table>
+			
+		</div>
+		
+	</div>
+	
+</body>
+</html>

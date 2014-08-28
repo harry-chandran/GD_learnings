@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<title>Angularjs tutorial </title>
+<script src="../js/jquery-1.9.1.js"></script>
+<script src="../js/angular.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/model.js"></script>
+<script src="js/sevice.js"></script>
+<script type="text/javascript">
+
+</script>
+<style type="text/css">
+	.small-thumb li{
+		width: 100px;
+	}
+	.large-thumb li{
+		width: 500px;
+	}
+	.result-list  li img{
+		width: 100%;
+	}
+</style>
+</head>
+<body ng-app="photoApp">
+	<div ng-controller="MainController">
+		<form action="" class="search-field" ng-submit="submitSearch()">
+			<input type="text" ng-model="searchKeyword">
+			<input type="submit" value="find">
+			<span>searching for :{{searchKeyword}}</span>
+		</form>
+
+		  <div class="size-controls btn-group">
+		  	 <button ng-disabled="thumbSize == 'small'" ng-click="setThumbSize('small')">Small</button> 
+		  	 <button ng-disabled="thumbSize == 'large'" ng-click="setThumbSize('large')">Large</button> 
+		  </div>
+		<ul class="result-list" ng-class="thumbSize + '-thumb'">
+			<li ng-repeat="photo in photos"><img src="{{photo.thumbUrl}}"></li>
+		</ul>
+	</div>
+</body>
+</html>

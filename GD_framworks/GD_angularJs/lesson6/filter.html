@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<title>Angularjs tutorial </title>
+<script src="../js/angular.js"></script>
+<script type="text/javascript">
+var tableApp = angular.module("tableApp",[]);
+tableApp.controller("tableController",function($scope){
+	$scope.service = [
+					{
+						name: 'Web Development',
+						price: 300,
+						active:true
+					},
+					{
+						name: 'Web design',
+						price: 1000,
+						active:true
+					},
+					{
+						name: 'java Developer',
+						price: 10,
+						active:true
+					},
+					{
+						name: 'android Developer',
+						price: 0,
+						active:true
+					},
+					{
+						name: 'php Developer',
+						price: 1000,
+						active:true
+					},
+					];
+});
+</script>
+</head>
+<body>
+
+	<div ng-app="tableApp" ng-controller="tableController" >
+	<input type="text" ng-model="sea.name">
+	<input type="text" ng-model="sea.price">
+			<table>
+				<thead>
+					<tr>
+						<th>Position</th>
+						<th>Salary</th>
+						<th>Job Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="list in service | filter:sea:strict">
+						<td >{{list.name}}</td><td >{{list.price}}</td><td >{{list.active}}</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+	
+</body>
+</html>

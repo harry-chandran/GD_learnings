@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<title>Angularjs tutorial </title>
+<script src="../js/angular.js"></script>
+<script type="text/javascript">
+ var myapp = angular.module("myApp", []);
+ 
+</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<nav class="{{active}}" ng-click="$event.preventDefault()" >
+			<a href="#" class="home" ng-click="active='home'">home</a>
+			<a href="#" class="projects" ng-click="active='projects'">project</a>
+			<a href="#" class="service" ng-click="active='service'">service</a>
+			<a href="#" class="contact" ng-click="active='contact'">contact</a>
+		</nav>
+		
+		
+		
+		<div ng-hide="active">Please Click the Menu</div>
+		<div ng-show="active">You are in <b>{{active}}</b></div>
+	</div>
+	
+</body>
+</html>

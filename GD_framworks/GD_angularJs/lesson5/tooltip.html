@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<title>Angularjs tutorial </title>
+<script src="../js/angular.js"></script>
+<script type="text/javascript">
+function init($scope){
+	$scope.showToolTip = false; 
+	$scope.value = "Edit Me";
+	$scope.toolTipShow = function(){
+		$scope.showToolTip = false;
+	}
+	$scope.showTip = function(e){
+		e.stopPropagation();
+		$scope.showToolTip = !$scope.showToolTip
+	}
+}
+</script>
+</head>
+<body>
+
+	<div ng-app ng-controller="init" ng-click = "toolTipShow()">
+		<div ng-show="showToolTip"  ng-click="$event.stopPropagation()" >
+			<input type="text" ng-model="value"/>
+		</div>
+		<p ng-click="showTip($event)">{{value}}</p>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Pushing Browser History States in JavaScript</title>
+<style>
+body
+{
+	font-family: arial, helvetica, freesans, sans-serif;
+	font-size: 100%;
+	color: #333;
+	background-color: #ddd;
+}
+
+h1
+{
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0;
+}
+
+pre
+{
+	height: 20em;
+	font-family: monospace;
+	font-size: 1em;
+	padding: 2px 5px;
+	color: #0f0;
+	background-color: #111;
+	border: 1px solid #030;
+	border-radius: 4px;
+	overflow: auto;
+}
+
+fieldset
+{
+	padding: 10px;
+	border-radius: 10px;
+}
+
+label, input
+{
+	display: block;
+	width: 80%;
+	font-size: 1em;
+	text-align: center;
+	margin: 2px auto;
+}
+
+button
+{
+	width: 12em;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+div.button
+{
+	width: 25em;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<h1>How to Modify the Browser History in Complex HTML5 &amp; JavaScript Applications</h1>
+
+<p>This demonstration illustrates how to use history.pushState to manipulate the browser history in complex client-side applications. Enter a message (optional) and click <strong>history.pushState</strong> a few times. Now use your browser's back and next buttons to move through the history states.</p>
+
+<p>For more information, refer to <a href="http://www.sitepoint.com/javascript-history-pushstate/">How to Modify the Browser History in Complex HTML5 &amp; JavaScript Applications</a>.</p>
+
+<form id="msgbox" action="#" method="get">
+<fieldset>
+<label for="msg">state message</label>
+<input id="msg" type="text" value="" />
+<input id="type" type="hidden" value="" />
+<div class="button">
+<button id="push">history.pushState</button>
+<button id="replace">history.replaceState</button>
+</div>
+</fieldset>
+</form>
+
+<pre id="log">History information log
+=======================
+</pre>
+
+<script>
+// elements
+var
+	msgbox = document.getElementById("msgbox"),
+	msg = document.getElementById("msg"),
+	type = document.getElementById("type"),
+	push = document.getElementById("push"),
+	replace = document.getElementById("replace"),
+	log = document.getElementById("log");
+	
+// state counter
+var state = 0;
+
+// handle different state types
+push.addEventListener("click", StateType, false);
+replace.addEventListener("click", StateType, false);
+
+// form submit handler
+msgbox.addEventListener("submit", StoreState, false);
+
+// set state type
+function StateType(e) {
+	type.value = e.target.id;
+}
+
+// push/replace state
+function StoreState(e) {
+	alert(e.target.id);
+	e.preventDefault();
+	state++;
+	var
+		sObj = { "state": state, "message": msg.value },
+		title = "title",
+		url = "#state=" + state;
+		
+	if (type.value == "replace"){
+		// replace current state
+		history.replaceState(sObj, title, url);
+	}
+	else {
+		// push new state
+		history.pushState(sObj, title, url);
+	}
+	
+	LogEvent(type.value + "State "+ state +": " + JSON.stringify(sObj));
+
+}
+
+
+// back/forward hit
+window.addEventListener("popstate", function(e) {
+	alert(JSON.stringify(e.state));
+	LogEvent("Location: " + document.location + ", state: " + JSON.stringify(e.state));
+	alert("")
+
+});
+
+
+// log event in console
+function LogEvent(logmsg) {
+	log.textContent += logmsg + "\n";
+	var ot = log.scrollHeight - log.clientHeight;
+	if (ot > 0) log.scrollTop = ot;
+}
+
+</script>
+</body>
+</html>
